@@ -25,16 +25,28 @@
       "id": 98443196
     },
     {
-      "cityName": "Berlin",
-      "country": "Germany",
-      "emoji": "🇩🇪",
-      "date": "2027-02-12T09:24:11.863Z",
-      "notes": "Amazing 😃",
+      "cityName": "Hassi Gara",
+      "date": "2023-08-13T18:13:11.000Z",
+      "country": "Algeria",
+      "emoji": "🇩🇿",
+      "notes": "qq",
       "position": {
-        "lat": 52.53586782505711,
-        "lng": 13.376933665713324
+        "lat": "29.400965209705472",
+        "lng": "2.9627426381753357"
       },
-      "id": 98443197
+      "id": 98443201
+    },
+    {
+      "cityName": "Zhezqazghan",
+      "date": "2023-08-13T18:18:28.789Z",
+      "country": "Kazakhstan",
+      "emoji": "🇰🇿",
+      "notes": "qwe",
+      "position": {
+        "lat": "47.40423354225773",
+        "lng": "68.88521223892629"
+      },
+      "id": 98443203
     }
   ]
 }

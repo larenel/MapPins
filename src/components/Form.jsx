@@ -53,7 +53,6 @@ function Form() {
         setEmoji(convertToEmoji(data.countryCode))
       } catch (error) {
         setGeocodingError(error.message)
-        console.error(error.message)
       } finally {
         setIsLoadingGeocoding(false)
       }
