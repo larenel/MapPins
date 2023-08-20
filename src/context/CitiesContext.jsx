@@ -1,9 +1,9 @@
 import {
   createContext,
+  useCallback,
   useContext,
   useEffect,
   useReducer,
-  useState,
 } from 'react'
 
 const CitiesContext = createContext()
@@ -66,18 +66,21 @@ const CitiesProvider = ({ children }) => {
     fetchCities()
   }, [])
 
-  const getCity = async (id) => {
-    if (+id === +currentCity.id) return
+  const getCity = useCallback(
+    async (id) => {
+      if (+id === +currentCity.id) return
 
-    dispatch({ type: 'loading' })
-    try {
-      const res = await fetch(`http://localhost:8000/cities/${id}`)
-      const data = await res.json()
-      dispatch({ type: 'city/loaded', payload: data })
-    } catch {
-      dispatch({ type: 'rejected', payload: 'Error while getting city' })
-    }
-  }
+      dispatch({ type: 'loading' })
+      try {
+        const res = await fetch(`http://localhost:8000/cities/${id}`)
+        const data = await res.json()
+        dispatch({ type: 'city/loaded', payload: data })
+      } catch {
+        dispatch({ type: 'rejected', payload: 'Error while getting city' })
+      }
+    },
+    [currentCity.id]
+  )
 
   const createCity = async (newCity) => {
     dispatch({ type: 'loading' })
@@ -128,7 +131,7 @@ const CitiesProvider = ({ children }) => {
   )
 }
 
-const useCities = () => {
+function useCities() {
   const context = useContext(CitiesContext)
   if (context === 'undefined')
     throw new Error('cities context was  used outside of cities provider')
